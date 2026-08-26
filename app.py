@@ -2,11 +2,6 @@ import streamlit as st
 import pandas as pd
 import joblib
 
-
-# -----------------------------------------
-# Load trained models
-# -----------------------------------------
-
 diabetes_model = joblib.load(
     "models/diabetes_model.pkl"
 )
@@ -15,21 +10,11 @@ heart_model = joblib.load(
     "models/heart_model.pkl"
 )
 
-
-# -----------------------------------------
-# Page configuration
-# -----------------------------------------
-
 st.set_page_config(
     page_title="Disease Prediction System",
     page_icon="🏥",
     layout="wide"
 )
-
-
-# -----------------------------------------
-# Main title
-# -----------------------------------------
 
 st.title("🏥 AI-Based Disease Prediction System")
 
@@ -49,10 +34,6 @@ st.warning(
 )
 
 
-# -----------------------------------------
-# Sidebar
-# -----------------------------------------
-
 st.sidebar.title("Navigation")
 
 disease = st.sidebar.radio(
@@ -63,11 +44,6 @@ disease = st.sidebar.radio(
         "Heart Disease Prediction"
     ]
 )
-
-
-# =========================================
-# HOME
-# =========================================
 
 if disease == "Home":
 
@@ -95,11 +71,6 @@ if disease == "Home":
         "Select a prediction module from the sidebar "
         "to begin."
     )
-
-
-# =========================================
-# DIABETES
-# =========================================
 
 elif disease == "Diabetes Prediction":
 
@@ -235,10 +206,6 @@ elif disease == "Diabetes Prediction":
                 f"{probability * 100:.2f}%"
             )
 
-
-# =========================================
-# HEART DISEASE
-# =========================================
 
 elif disease == "Heart Disease Prediction":
 
@@ -404,10 +371,6 @@ elif disease == "Heart Disease Prediction":
                 f"{probability * 100:.2f}%"
             )
 
-
-# -----------------------------------------
-# Footer
-# -----------------------------------------
 
 st.divider()
 
